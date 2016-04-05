@@ -7,10 +7,9 @@ app.set('port', process.env.PORT || 3000)
 app.use(morgan('combined'))
 
 app.get('/api/v1/documents/:enterpriseNumber', (req, res) => {
-  let enterpriseNumber = String(req.params.enterpriseNumber || "")
-  let normalized = parseInt(enterpriseNumber.replace(/\D/g, ""), 10)
+  let enterpriseNumber = parser.normalizeEnterpriseNumber(req.params.enterpriseNumber)
 
-  parser.searchDocuments(normalized).then(
+  parser.searchDocuments(enterpriseNumber).then(
     (documents) => res.json(documents)
   ).catch(
     (err) => res.status(400).json({ err })

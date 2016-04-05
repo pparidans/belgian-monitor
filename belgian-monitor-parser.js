@@ -33,4 +33,6 @@ const searchDocuments = (enterpriseNumber) => new Promise( (resolve, reject) => 
   })
 })
 
-export default { searchDocuments }
+const normalizeEnterpriseNumber = (enterpriseNumber) => parseInt(String(enterpriseNumber || "").replace(/\D/g, ""), 10)
+
+export default { searchDocuments, normalizeEnterpriseNumber }
