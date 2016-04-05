@@ -1,5 +1,3 @@
-'use strict';
-
 import jsdom from 'jsdom'
 import moment from 'moment'
 import url from 'url'
