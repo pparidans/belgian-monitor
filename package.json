@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
+    "cmd": "babel-node cmd.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
