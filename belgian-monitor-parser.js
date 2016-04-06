@@ -1,7 +1,9 @@
-import jsdom from 'jsdom'
-import moment from 'moment'
-import url from 'url'
-import partial from 'lodash.partial'
+'use strict'
+
+let jsdom = require('jsdom')
+let moment = require('moment')
+let url = require('url')
+let partial = require('lodash.partial')
 
 const buildUrl = (enterpriseNumber) => `http://www.ejustice.just.fgov.be/cgi_tsv/tsv_l_1.pl?lang=fr&sql=btw+contains+%27${enterpriseNumber}%27&fromtab=TSV&rech=1&pdda=&pddm=&pddj=&pdfa=&pdfm=&pdfj=&naam=&postkode=&localite=&numpu=&hrc=&akte=&btw=${enterpriseNumber}&jvorm=&land=&set2=&set3=`
 
@@ -35,4 +37,4 @@ const searchDocuments = (enterpriseNumber) => new Promise( (resolve, reject) => 
 
 const normalizeEnterpriseNumber = (enterpriseNumber) => parseInt(String(enterpriseNumber || "").replace(/\D/g, ""), 10)
 
-export default { searchDocuments, normalizeEnterpriseNumber }
+module.exports = { searchDocuments, normalizeEnterpriseNumber }

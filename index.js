@@ -1,7 +1,9 @@
-import express from 'express'
-import morgan from 'morgan'
-import parser from './belgian-monitor-parser'
-import throng from 'throng'
+'use strict'
+
+let express = require('express')
+let morgan = require('morgan')
+let parser = require('./belgian-monitor-parser')
+let throng = require('throng')
 
 const WORKERS = process.env.WEB_CONCURRENCY || 1
 const PORT = process.env.PORT || 3000
